@@ -1,0 +1,50 @@
+##################################
+# Terraform
+##################################
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.*
+**/terraform.tfstate
+**/terraform.tfstate.*
+
+# Terraform working directory
+.terraform/
+**/.terraform/
+
+# Terraform plan files
+*.tfplan
+
+##################################
+# Terraform build artifacts
+##################################
+
+# Lambda zip build directory
+.build/
+**/.build/
+
+##################################
+# LocalStack / Docker
+##################################
+
+# Docker volumes & temp
+.localstack/
+docker-volume/
+*.log
+
+##################################
+# Test / runtime artifacts
+##################################
+
+hello.txt
+urls.txt
+
+##################################
+# OS / editor junk
+##################################
+
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
