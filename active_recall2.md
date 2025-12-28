@@ -5,104 +5,86 @@ Use this section for **active recall training**.
 
 ---
 
-### 1️⃣ What problem does Mini-CDL v1 solve?
-
-**Question**  
-In one sentence, what does Mini-CDL v1 do?
+### 1️⃣ What problem does Mini-CDL 1 do ?
 
 **Answer**  
-Mini-CDL v1 provides a minimal data-lake backend where users can upload files to S3 and list them via a public API built with API Gateway and Lambda, fully managed by Terraform.
+1Mini-CDL is a backend service  where users can upload files to S3 and list them via a public API 
+2built with API Gateway and Lambda, 
+3fully managed by Terraform.
 
 ---
 
 ### 2️⃣ What is the complete data flow?
 
-**Question**  
-Describe the full request flow when a user lists files.
-
 **Answer**  
-User → HTTP request → API Gateway → Lambda function → S3 bucket → Lambda response → API Gateway → HTTP response.
+the full request flow when a user lists files.
+User → HTTP request → 
+API Gateway → Lambda function → S3 bucket → 
+Lambda response → API Gateway → HTTP response.
 
 ---
 
 ### 3️⃣ Why do we use LocalStack?
 
-**Question**  
-Why is LocalStack used instead of real AWS?
-
 **Answer**  
-LocalStack emulates AWS services locally so Terraform can deploy real infrastructure logic without creating resources in AWS or incurring costs.
+LocalStack emulates AWS services locally so 
+Terraform can deploy with 0 costs. 
 
 ---
 
 ### 4️⃣ What is the role of Terraform in this system?
 
-**Question**  
-What does Terraform do in Mini-CDL v1?
-
 **Answer**  
-Terraform declares and creates all infrastructure components (S3, IAM, Lambda, API Gateway) and wires them together automatically.
+Terraform declares and creates all infrastructure components (S3, IAM, Lambda, API Gateway) 
+and wires them together automatically.
 
 ---
 
-### 5️⃣ What are the most important Terraform resource types here?
-
-**Question**  
-Name the five most important Terraform resource types used.
+### 5️⃣ What are the 6  most important Terraform resource types here?
 
 **Answer**
-- `aws_s3_bucket`
-- `aws_iam_role` / `aws_iam_role_policy`
-- `aws_lambda_function`
 - `aws_api_gateway_*`
+- `aws_iam_role`  
+- `aws_iam_role_policy`
+- `aws_lambda_function`
 - `aws_lambda_permission`
+- `aws_s3_bucket`
 
 ---
-
 ### 6️⃣ Why does Lambda need an IAM role?
 
-**Question**  
-Why do Lambda functions need an IAM role?
-
 **Answer**  
-Because Lambda cannot access S3 (or any AWS service) unless explicitly granted permissions via an IAM role and policy.
-
+without iam role Lambda cannot access S3 (or any AWS service) 
+with iam role and policy there is granted permissions.
 ---
 
-### 7️⃣ What does `AWS_PROXY` integration mean?
-
-**Question**  
-What does `type = "AWS_PROXY"` do in API Gateway integrations?
+### 7️⃣ What does type = `AWS_PROXY` integration mean?
 
 **Answer**  
-It means the Lambda function fully controls the HTTP response (status code, headers, body), and API Gateway forwards it directly to the client.
+It means the Lambda function fully controls the HTTP response (status code, headers, body), 
+API Gateway forwards it directly to the client.
 
 ---
 
 ### 8️⃣ How does Terraform know in which order to create resources?
 
-**Question**  
-Terraform files are not executed top-to-bottom. How does Terraform determine creation order?
-
 **Answer**  
-Terraform builds a dependency graph by analyzing references between resources (for example, Lambdas referencing IAM roles or S3 buckets).
+Terraform files are not executed top-to-bottom 
+Terraform builds a dependency graph by analyzing references between resources 
+(for example, Lambdas referencing IAM roles or S3 buckets).
 
 ---
 
 ### 9️⃣ Why are Lambda source files zipped?
 
-**Question**  
-Why do we use the `archive_file` data source?
-
 **Answer**  
-Because AWS Lambda requires code to be uploaded as a ZIP file, and `archive_file` packages the Python source automatically during deployment.
+
+because AWS Lambda requires code to be uploaded as a ZIP file, 
+and `archive_file` packages the Python source automatically during deployment.
 
 ---
 
 ### 🔟 What are the most important Lambda environment variables?
-
-**Question**  
-Which environment variables are critical in the Lambda functions, and why?
 
 **Answer**
 - `BUCKET_NAME` → tells Lambda which S3 bucket is the data lake  
