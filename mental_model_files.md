@@ -67,12 +67,30 @@ Each Terraform working directory maintains its own state file; backups are creat
 
 ---
 
-### 🧠 Interview Tip
+---
 
-If you can explain **every file’s role** clearly, you demonstrate:
-- ownership of the project
-- clean mental separation of concerns
-- real Terraform understanding (not copy-paste usage)
+## 🧠 Mini-CDL v1 — Active Recall (Questions Only)
 
-That’s a **strong signal** in interviews.
+---
 
+1️⃣ What is the role of `docker-compose.yml`?
+
+2️⃣ What is the purpose of the `infra/` directory?
+
+3️⃣ What is the responsibility of `main.tf`?
+
+4️⃣ What is the role of `variables.tf`?
+
+5️⃣ What does `outputs.tf` provide?
+
+6️⃣ Why is there a `lambda/` directory?
+
+7️⃣ What does `list_files.py` do?
+
+8️⃣ What does `upload_url.py` do?
+
+9️⃣ What is `terraform.tfstate` and why is it dangerous?
+
+🔟 Why are there multiple `terraform.tfstate` files?
+
+---
