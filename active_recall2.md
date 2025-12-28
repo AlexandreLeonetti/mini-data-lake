@@ -121,3 +121,14 @@ If you can explain all 10 answers **without looking**, you understand:
 
 That is **more than enough** for most infrastructure interviews.
 
+### 1️⃣ What problem does Mini-CDL v1 solve?
+### 2️⃣ What is the complete data flow?
+### 3️⃣ Why do we use LocalStack?
+### 4️⃣ What is the role of Terraform in this system?
+### 5️⃣ What are the most important Terraform resource types here?
+### 6️⃣ Why does Lambda need an IAM role?
+### 7️⃣ What does `AWS_PROXY` integration mean?
+### 8️⃣ How does Terraform know in which order to create resources?
+### 9️⃣ Why are Lambda source files zipped?
+### 🔟 What are the most important Lambda environment variables?
+
